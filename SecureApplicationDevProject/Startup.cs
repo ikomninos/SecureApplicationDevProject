@@ -78,39 +78,9 @@ namespace SecureApplicationDevProject
                 endpoints.MapRazorPages();
             });
 
-            CreateRoles(serviceProvider).Wait();
+            
         }
 
-        private async Task CreateRoles(IServiceProvider serviceProvider)
-        {
-            //initializing custom roles
-            var RoleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-            var UserManager = serviceProvider.GetRequiredService<UserManager<IdentityUser>>();
-
-            //var role = new IdentityRole();
-            //role.Name = "Default";
-            //await RoleManager.CreateAsync(role);
-
-            //var role1 = await RoleManager.FindByNameAsync("Default");
-
-
-
-            var user = new IdentityUser();
-            user.UserName = "JohnT@gmail.com";
-            user.Email = "JohnT@gmail.com";
-            user.EmailConfirmed = true;
-            string userPWD = "JohnT123!@#";
-
-
-
-            IdentityResult chkUser = await UserManager.CreateAsync(user, userPWD);
-
-
-
-            if (chkUser.Succeeded)
-            {
-                var result = await UserManager.AddToRoleAsync(user, "Default");
-            }
-        }
+       
     }
 }

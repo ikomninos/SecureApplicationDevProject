@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "User Area";
+}
+@if (User.IsInRole("Default"))
+{
+    <div class="text-center">
+        <h1 class="display-4">Welcome to the Loby</h1>
+        
+    </div>
+
+}
+else
+{
+    <font color="red">
+        <div class="text-center">
+            <h1 class="display-4">ACCESS DENIED MEMBERS ONLY AREA</h1>
+            <p style="color:purple;">Please Register or Sign In</p>
+
+        </div>
+    </font>
+}

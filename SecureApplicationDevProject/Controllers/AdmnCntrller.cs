@@ -9,7 +9,7 @@ namespace SecureApplicationDevProject.Controllers
 
 
 {
-
+    [AutoValidateAntiforgeryToken]
     [Authorize(Roles = "Administrator")]
     public class AdmnCntrller : Controller
     {

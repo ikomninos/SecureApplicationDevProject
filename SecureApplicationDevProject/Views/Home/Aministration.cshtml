@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Administration";
+
+}
+
+@if (User.IsInRole("Administrator"))
+{
+    <div class="text-center">
+        <h1 class="display-4">Welcome Admin</h1>
+        <form asp-controller="=" Home" asp-action="Index" method="post">
+            <input name="txtname" type="text" />
+            <input type="submit" value="Submit" />
+
+        </form>
+    </div>
+
+}
+else
+{
+<font color="red">
+    <div class="text-center">
+        <h1 class="display-4">ACCESS DENIED ADMIN ONLY AREA</h1>
+
+    </div>
+</font>
+}
+

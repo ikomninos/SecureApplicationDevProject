@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using SecureApplicationDevProject.Models;
 using System;
@@ -22,8 +23,18 @@ namespace SecureApplicationDevProject.Controllers
         {
             return View();
         }
-
-        public IActionResult Privacy()
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Index(IFormCollection fc)
+        {
+            string res = fc["txtname"];
+            return View();
+        }
+        public IActionResult Aministration()
+        {
+            return View();
+        }
+        public IActionResult UserArea()
         {
             return View();
         }
